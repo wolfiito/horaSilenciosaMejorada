@@ -1,0 +1,113 @@
+{% extends 'menu.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleShowActivePrayers.css') }}">
+{% endblock head %}
+
+{% block title %}
+    {{ super() }}
+    Oración
+{% endblock title %}
+
+{% block contenido %}
+
+<section class="contenedor-principal-peticiones">
+    <section class="botones-peticiones">
+        <button class="botones-oracion">Agregar nueva Oracion</button>
+        <button class="botones-oracion" onclick="mostrarTareas('activas')">Mostrar Oraciones Activas</button>
+        <button class="botones-oracion" onclick="mostrarTareas('finalizadas')">Mostrar Oraciones Finalizadas</button>
+    </section>
+
+    <section class="contenido-tareas" id="contenido-tareas-activas">
+        {% if tareas %}
+            {% if not tareas | selectattr('isActive', 'equalto', 'True') | list %}
+                <p>No hay tareas disponiblesasdsad.</p>
+            {% else %}
+                {% for tarea in tareas %}
+                    {% if tarea['isAdmin'] == 'True' and rol == 'Admin' %}
+                        {% if tarea['isActive'] == "True" %}
+                            <div class="contenedor-peticion">
+                                <div class="peticion">
+                                    <div class="titulo">
+                                        <h2>{{ tarea['titulo'] }}</h2>
+                                    </div>
+                                    
+                                    <div class="botones">
+                                        <ion-icon name="hand-right" onclick="sumarOracion('{{ loop.index }}')"></ion-icon>
+                                        {% if rol == 'Admin'  %}
+                                            <ion-icon name="checkmark-circle" onclick="marcarCompleta('{{ loop.index }}')"></ion-icon>
+                                        {% endif %}
+                                        <ion-icon id="desc" name="chevron-forward-circle"
+                                        onclick="toggleDescripcion(this)"></ion-icon>
+                                    </div>
+                                </div>
+                                <div class="descripcion">
+                                    {{ tarea['descripcion'] }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        {% if tarea['isActive'] == "True" and tarea['isAdmin'] != 'True' %}
+                            <div class="contenedor-peticion">
+                                <div class="peticion">
+                                    <div class="titulo">
+                                        <h2>{{ tarea['titulo'] }}</h2>
+                                    </div>
+                                    
+                                    <div class="botones">
+                                        <ion-icon name="hand-right" onclick="sumarOracion('{{ loop.index }}')"></ion-icon>
+                                        {% if rol == 'Admin'  %}
+                                            <ion-icon name="checkmark-circle" onclick="marcarCompleta('{{ loop.index }}')"></ion-icon>
+                                        {% endif %}
+                                        <ion-icon id="desc" name="chevron-forward-circle"
+                                        onclick="toggleDescripcion(this)"></ion-icon>
+                                    </div>
+                                </div>
+                                <div class="descripcion">
+                                    {{ tarea['descripcion'] }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </section>
+        {% endif %}
+            {% if tareas %}
+                <section class="contenido-tareas" id="contenido-tareas-finalizadas">
+                    {% if not tareas | selectattr('isActive', 'equalto', 'False') | list %}
+                        <p>No hay oraciones respondidas</p>
+                    {% else %}
+                            {% for tarea in tareas %}
+                                {% if tarea['isActive'] == "False" %}
+                                    <div class="contenedor-peticion">
+                                        <div class="peticion">
+                                                <div class="titulo">
+                                                    <h2>{{ tarea['titulo'] }}</h2>
+                                                </div>
+                                            <div class="botones">
+                                                <ion-icon id="desc" name="chevron-forward-circle"
+                                                onclick="toggleDescripcion(this)"></ion-icon>
+                                            </div>
+                                        </div>
+                                        <div class="descripcion">
+                                            <p><strong>Descripción: </strong>{{ tarea['descripcion'] }}</p><br>
+                                            <p><strong>Fecha de inicio: </strong>{{ tarea['fechaInicio'] }}</p><br>
+                                            <p><strong>Fecha de respuesta: </strong>{{ tarea['fechaFinal'] }}</p><br>
+                                            <p><strong>Testimonio: </strong>{{ tarea['testimonio'] }}</p><br>
+                                            <p><strong>Número de veces que oraron por la petición fue de: </strong>{{ tarea['total'] }}</p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                    {% endif %}
+                </section>
+            {% endif %}
+</section>
+{% endblock contenido %}
+
+{% block script %}
+{{ super() }}
+    <script src="{{ url_for('static', filename='js/showActivePrayers.js') }}"></script>
+{% endblock script %}

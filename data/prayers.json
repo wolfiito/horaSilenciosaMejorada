@@ -1,0 +1,39 @@
+[
+    {
+        "titulo": "Trabajo de Rub\u00e9n Flores",
+        "descripcion": "En unos d\u00edas mi contrato se termina, espero poder renovar pero si no es la voluntad de Dios que me de direcci\u00f3n",
+        "fechaInicio": "22-Enero-2024",
+        "fechaFinal": "2-febrero-2024",
+        "testimonio": "Si me dieron el nuevo contrato. ",
+        "total": 9,
+        "isActive": "False"
+    },
+    {
+        "titulo": "Salud Cecilia Verdi",
+        "descripcion": "Lleva m\u00e1s de un mes con tos, hoy nuevamente asistir\u00e1 al doctor, oren para que se pueda identificar que causa la tos y, un pronto tratamiento",
+        "fechaInicio": "22-Enero-2024",
+        "fechaFinal": "9-febrero-2024",
+        "testimonio": "Gracias a Dios estoy mucho mejor y me he recuperado casi por completo.",
+        "total": 21,
+        "isActive": "False"
+    },
+    {
+        "titulo": "Salud Miguel Verdi (Actualizado)",
+        "descripcion": "El S\u00e1bado 10/02 tiene revisi\u00f3n con el oftalm\u00f3logo, para determinar si ha progresado. Ceci pide que su pap\u00e1 pueda encontrar descanso en Dios y en su voluntad y que su cuerpo pueda responder a eso, as\u00ed como provisi\u00f3n para los gastos m\u00e9dicos",
+        "fechaInicio": "22-Enero-2024",
+        "fechaFinal": "14-febrero-2024",
+        "testimonio": "Le fue muy bien en su cita, ya s\u00f3lo es necesario hacer unos estudios para descartar da\u00f1o neurol\u00f3gico, pero gracias a Dios se ha recuperado bastante bien (:",
+        "total": 26,
+        "isActive": "False"
+    },
+    {
+        "titulo": "Salvaci\u00f3n de Rogelio Soto",
+        "descripcion": "Oraci\u00f3n de los lideres. Oremos por la vida de Rogelio Soto, \u00e9l conoce de Dios pero no quiere recibirlo en su vida, esta muy confundido por las circunstancias que ha vivido con su familia. Oren por Rub\u00e9n para que Dios pueda utilizarlo como la herramienta que Dios pueda usar. Oren para que se anime a ir a campamento y que asista m\u00e1s seguido los s\u00e1bados",
+        "fechaInicio": "22-Enero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 1,
+        "isActive": "True",
+        "isAdmin": "True"
+    }
+]
