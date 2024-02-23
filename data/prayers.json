@@ -6,7 +6,8 @@
         "fechaFinal": "2-febrero-2024",
         "testimonio": "Si me dieron el nuevo contrato. ",
         "total": 9,
-        "isActive": "False"
+        "isActive": "False",
+        "isAdmin": "False"
     },
     {
         "titulo": "Salud Cecilia Verdi",
@@ -15,7 +16,8 @@
         "fechaFinal": "9-febrero-2024",
         "testimonio": "Gracias a Dios estoy mucho mejor y me he recuperado casi por completo.",
         "total": 21,
-        "isActive": "False"
+        "isActive": "False",
+        "isAdmin": "False"
     },
     {
         "titulo": "Salud Miguel Verdi (Actualizado)",
@@ -24,10 +26,43 @@
         "fechaFinal": "14-febrero-2024",
         "testimonio": "Le fue muy bien en su cita, ya s\u00f3lo es necesario hacer unos estudios para descartar da\u00f1o neurol\u00f3gico, pero gracias a Dios se ha recuperado bastante bien (:",
         "total": 26,
-        "isActive": "False"
+        "isActive": "False",
+        "isAdmin": "False"
     },
     {
-        "titulo": "Salvaci\u00f3n de Rogelio Soto",
+        "titulo": "asdasd",
+        "descripcion": "sadadsad",
+        "fechaInicio": "23-febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 1,
+        "isActive": "True",
+        "isAdmin": "True",
+        "creator": "Alejandro"
+    },
+    {
+        "titulo": "asdsadsa",
+        "descripcion": "dasdsad",
+        "fechaInicio": "23-febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 1,
+        "isActive": "True",
+        "isAdmin": "False",
+        "creator": "Luz"
+    },
+    {
+        "titulo": "de Rogelio Soto",
+        "descripcion": "Oraci\u00f3n de los lideres. Oremos por la vida de Rogelio Soto, \u00e9l conoce de Dios pero no quiere recibirlo en su vida, esta muy confundido por las circunstancias que ha vivido con su familia. Oren por Rub\u00e9n para que Dios pueda utilizarlo como la herramienta que Dios pueda usar. Oren para que se anime a ir a campamento y que asista m\u00e1s seguido los s\u00e1bados",
+        "fechaInicio": "22-Enero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 1,
+        "isActive": "False",
+        "isAdmin": "True"
+    },
+    {
+        "titulo": "Rogelio Soto",
         "descripcion": "Oraci\u00f3n de los lideres. Oremos por la vida de Rogelio Soto, \u00e9l conoce de Dios pero no quiere recibirlo en su vida, esta muy confundido por las circunstancias que ha vivido con su familia. Oren por Rub\u00e9n para que Dios pueda utilizarlo como la herramienta que Dios pueda usar. Oren para que se anime a ir a campamento y que asista m\u00e1s seguido los s\u00e1bados",
         "fechaInicio": "22-Enero-2024",
         "fechaFinal": "",
@@ -35,5 +70,27 @@
         "total": 1,
         "isActive": "True",
         "isAdmin": "True"
+    },
+    {
+        "titulo": "Prueba 2",
+        "descripcion": "dasdsad",
+        "fechaInicio": "23-febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 1,
+        "isActive": "True",
+        "isAdmin": "False",
+        "creator": "Luz"
+    },
+    {
+        "titulo": "Prueba 3",
+        "descripcion": "dasdsad",
+        "fechaInicio": "23-febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 1,
+        "isActive": "True",
+        "isAdmin": "True",
+        "creator": "Astrid"
     }
 ]

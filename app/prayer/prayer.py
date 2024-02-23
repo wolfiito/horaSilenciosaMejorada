@@ -20,7 +20,8 @@ def cargar_tareas():
 def mostrar_tareas_activas():
     tareas = cargar_tareas()
     rol = current_user.role
-    return render_template('showActivePrayers.html', tareas=tareas, rol=rol)
+    user = current_user.id
+    return render_template('showActivePrayers.html', tareas=tareas, rol=rol, user=user)
 
 # Ruta para sumar las veces que se ha orado sobre un versículo
 @oracion_bp.route('/sumar_oracion', methods=['POST'])
@@ -128,3 +129,45 @@ def marcar_completa():
         return jsonify(success=True, tareas_actualizadas=tareas)
     else:
         return jsonify(success=False, error='Índice no proporcionado')
+
+
+@oracion_bp.route('/agregar_oracion', methods=['POST'])
+def agregar_oracion():
+    data = request.json
+    if data:
+        titulo = data.get('titulo', '')
+        descripcion = data.get('descripcion', '')
+        
+        # Obtener el rol del usuario actual (esto dependerá de cómo obtengas el rol en tu aplicación Flask)
+        rol = current_user.role
+
+        # Obtener el usuario creador (esto dependerá de cómo obtengas el usuario en tu aplicación Flask)
+        creator = current_user.id
+
+        if rol == 'Admin':
+            isAdmin = "True"
+        else:
+            isAdmin = "False"
+
+        nueva_oracion = {
+            "titulo": titulo,
+            "descripcion": descripcion,
+            "fechaInicio": format_date(datetime.now(), format='d-MMMM-y', locale='es_ES'),
+            "fechaFinal": "",
+            "testimonio": "",
+            "total": 1,
+            "isActive": "True",
+            "isAdmin": isAdmin,
+            "creator": creator
+        }
+
+        with open('data/prayers.json', 'r+', encoding='utf-8') as json_file:
+            tareas = json.load(json_file)
+            tareas.append(nueva_oracion)
+            json_file.seek(0)
+            json.dump(tareas, json_file, indent=4)
+            json_file.truncate()
+
+        return jsonify({'success': True, 'message': 'Oración agregada correctamente.'})
+    else:
+        return jsonify({'success': False, 'message': 'Datos no proporcionados.'}), 400

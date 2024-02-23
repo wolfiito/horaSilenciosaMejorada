@@ -11,16 +11,42 @@
 {% endblock title %}
 
 {% block contenido %}
+    <section class="contenedor-principal-peticiones">
+        <section class="botones-peticiones">
+            <button type="button" class="botones-oracion" data-bs-toggle="modal" data-bs-target="#modalAgregarTarea">Agregar Petición Oración</button>
+            <button class="botones-oracion" onclick="mostrarTareas('activas')">Mostrar Oraciones Activas</button>
+            <button class="botones-oracion" onclick="mostrarTareas('finalizadas')">Mostrar Oraciones Finalizadas</button>
 
-<section class="contenedor-principal-peticiones">
-    <section class="botones-peticiones">
-        <button class="botones-oracion">Agregar nueva Oracion</button>
-        <button class="botones-oracion" onclick="mostrarTareas('activas')">Mostrar Oraciones Activas</button>
-        <button class="botones-oracion" onclick="mostrarTareas('finalizadas')">Mostrar Oraciones Finalizadas</button>
-    </section>
+            <!-- Modal para agregar tarea -->
+            <div class="modal" id="modalAgregarTarea">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Nueva Petición de Oración</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="cerrarModal()"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formAgregarTarea">
+                                <div class="form-group mb-3">
+                                    <label for="titulo">Título Petición</label>
+                                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Coloca un título breve" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="col-form-label" for="descripcion">Descripción Petición</label>
+                                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Trata de ser muy específico con tu petición"  required></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Agregar Tarea</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="contenido-tareas" id="contenido-tareas-activas">
-        {% if tareas %}
+        <section class="contenido-tareas" id="contenido-tareas-activas">
             {% if not tareas | selectattr('isActive', 'equalto', 'True') | list %}
                 <p>No hay tareas disponiblesasdsad.</p>
             {% else %}
@@ -32,12 +58,9 @@
                                     <div class="titulo">
                                         <h2>{{ tarea['titulo'] }}</h2>
                                     </div>
-                                    
                                     <div class="botones">
                                         <ion-icon name="hand-right" onclick="sumarOracion('{{ loop.index }}')"></ion-icon>
-                                        {% if rol == 'Admin'  %}
-                                            <ion-icon name="checkmark-circle" onclick="marcarCompleta('{{ loop.index }}')"></ion-icon>
-                                        {% endif %}
+                                        <ion-icon name="checkmark-circle" data-bs-toggle="modal" data-bs-target="#modalCerrarTarea"></ion-icon>
                                         <ion-icon id="desc" name="chevron-forward-circle"
                                         onclick="toggleDescripcion(this)"></ion-icon>
                                     </div>
@@ -47,18 +70,17 @@
                                 </div>
                             </div>
                         {% endif %}
-                    {% else %}
-                        {% if tarea['isActive'] == "True" and tarea['isAdmin'] != 'True' %}
+                    {% elif tarea['isAdmin'] == 'False' %}
+                        {% if tarea['isActive'] == "True" %}
                             <div class="contenedor-peticion">
                                 <div class="peticion">
                                     <div class="titulo">
                                         <h2>{{ tarea['titulo'] }}</h2>
                                     </div>
-                                    
                                     <div class="botones">
                                         <ion-icon name="hand-right" onclick="sumarOracion('{{ loop.index }}')"></ion-icon>
-                                        {% if rol == 'Admin'  %}
-                                            <ion-icon name="checkmark-circle" onclick="marcarCompleta('{{ loop.index }}')"></ion-icon>
+                                        {% if rol == 'Admin' or user == tarea['creator'] %}
+                                            <ion-icon name="checkmark-circle" data-bs-toggle="modal" data-bs-target="#modalCerrarTarea"></ion-icon>
                                         {% endif %}
                                         <ion-icon id="desc" name="chevron-forward-circle"
                                         onclick="toggleDescripcion(this)"></ion-icon>
@@ -72,42 +94,88 @@
                     {% endif %}
                 {% endfor %}
             {% endif %}
+            <!-- Modal para agregar tarea -->
+            <div class="modal" id="modalCerrarTarea">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Cerrar Petición de Oración</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="cerrarModal()"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formCerrarPeticion">
+                                <div class="form-group mb-3">
+                                    <label class="col-form-label" for="testimonio">Testimonio</label>
+                                    <textarea class="form-control" id="testimonio" name="testimonio" rows="3" placeholder="Cuentanos un poco sobre como respondió Dios, Recuerda que las respuestas de Dios no siempre son si"  required></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Agregar Tarea</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        {% endif %}
-            {% if tareas %}
-                <section class="contenido-tareas" id="contenido-tareas-finalizadas">
-                    {% if not tareas | selectattr('isActive', 'equalto', 'False') | list %}
-                        <p>No hay oraciones respondidas</p>
-                    {% else %}
-                            {% for tarea in tareas %}
-                                {% if tarea['isActive'] == "False" %}
-                                    <div class="contenedor-peticion">
-                                        <div class="peticion">
-                                                <div class="titulo">
-                                                    <h2>{{ tarea['titulo'] }}</h2>
-                                                </div>
-                                            <div class="botones">
-                                                <ion-icon id="desc" name="chevron-forward-circle"
-                                                onclick="toggleDescripcion(this)"></ion-icon>
-                                            </div>
-                                        </div>
-                                        <div class="descripcion">
-                                            <p><strong>Descripción: </strong>{{ tarea['descripcion'] }}</p><br>
-                                            <p><strong>Fecha de inicio: </strong>{{ tarea['fechaInicio'] }}</p><br>
-                                            <p><strong>Fecha de respuesta: </strong>{{ tarea['fechaFinal'] }}</p><br>
-                                            <p><strong>Testimonio: </strong>{{ tarea['testimonio'] }}</p><br>
-                                            <p><strong>Número de veces que oraron por la petición fue de: </strong>{{ tarea['total'] }}</p>
-                                        </div>
+        <section class="contenido-tareas" id="contenido-tareas-finalizadas">
+            {% if not tareas | selectattr('isActive', 'equalto', 'False') | list %}
+                <p>No hay oraciones respondidas</p>
+            {% else %}
+                {% for tarea in tareas %}
+                    {% if tarea['isAdmin'] == 'True' and rol == 'Admin' %}
+                        {% if tarea['isActive'] == "False" %}
+                            <div class="contenedor-peticion">
+                                <div class="peticion">
+                                    <div class="titulo">
+                                        <h2>{{ tarea['titulo'] }}</h2>
                                     </div>
-                                {% endif %}
-                            {% endfor %}
+                                    <div class="botones">
+                                        <ion-icon id="desc" name="chevron-forward-circle"
+                                        onclick="toggleDescripcion(this)"></ion-icon>
+                                    </div>
+                                </div>
+                                <div class="descripcion">
+                                    <p><strong>Descripción: </strong>{{ tarea['descripcion'] }}</p><br>
+                                    <p><strong>Fecha de inicio: </strong>{{ tarea['fechaInicio'] }}</p><br>
+                                    <p><strong>Fecha de respuesta: </strong>{{ tarea['fechaFinal'] }}</p><br>
+                                    <p><strong>Testimonio: </strong>{{ tarea['testimonio'] }}</p><br>
+                                    <p><strong>Número de veces que oraron por la petición fue de: </strong>{{ tarea['total'] }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% elif tarea['isAdmin'] == 'False' %}
+                        {% if tarea['isActive'] == "False" %}
+                            <div class="contenedor-peticion">
+                                <div class="peticion">
+                                    <div class="titulo">
+                                        <h2>{{ tarea['titulo'] }}</h2>
+                                    </div>
+                                    <div class="botones">
+                                        <ion-icon id="desc" name="chevron-forward-circle"
+                                        onclick="toggleDescripcion(this)"></ion-icon>
+                                    </div>
+                                </div>
+                                <div class="descripcion">
+                                    <p><strong>Descripción: </strong>{{ tarea['descripcion'] }}</p><br>
+                                    <p><strong>Fecha de inicio: </strong>{{ tarea['fechaInicio'] }}</p><br>
+                                    <p><strong>Fecha de respuesta: </strong>{{ tarea['fechaFinal'] }}</p><br>
+                                    <p><strong>Testimonio: </strong>{{ tarea['testimonio'] }}</p><br>
+                                    <p><strong>Número de veces que oraron por la petición fue de: </strong>{{ tarea['total'] }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
                     {% endif %}
-                </section>
+                {% endfor %}
             {% endif %}
-</section>
+        </section>
+    </section>
 {% endblock contenido %}
 
 {% block script %}
-{{ super() }}
+    {{ super() }}
     <script src="{{ url_for('static', filename='js/showActivePrayers.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 {% endblock script %}
+
+<!-- onclick="marcarCompleta('{{ loop.index }}')" -->
