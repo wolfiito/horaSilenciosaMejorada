@@ -81,9 +81,8 @@ def sumar_veces_oradas():
 ];
     versiculo = random.choice(versiculo)
     index = int(request.form.get('index')) - 1
-
     # Leer el JSON desde el archivo
-    with open('data/data/prayers.json', 'r', encoding='utf-8') as f:
+    with open('data/prayers.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     if 0 <= index < len(data):
@@ -137,7 +136,7 @@ def agregar_oracion():
     if data:
         titulo = data.get('titulo', '')
         descripcion = data.get('descripcion', '')
-        
+
         # Obtener el rol del usuario actual (esto dependerá de cómo obtengas el rol en tu aplicación Flask)
         rol = current_user.role
 
