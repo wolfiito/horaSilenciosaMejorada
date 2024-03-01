@@ -15,7 +15,7 @@
     <div class="container">
         <div class="login">
             <div class="login__content">
-                <img class="login__img" src="../static/images/bg-login.png" alt="Login image" />
+                <img class="login__img" src="../static/images/bg-login.PNG" alt="Login image" />
                 <form class="login__form" method="POST" action="{{ url_for('auth.login') }}">
                     <div>
                         <h1 class="login__title">
@@ -28,11 +28,11 @@
                     <div>
                         <div class="login__inputs">
                             <div>
-                                <label for="username" class="login__label">Email</label>
+                                <label for="username" class="login__label">Usuario</label>
                                 <input class="login__input" type="text" name="nombre_usuario" id="username" placeholder="Ingrese Usuario" required />
                             </div>
                             <div>
-                                <label for="password" class="login__label">Password</label>
+                                <label for="password" class="login__label">Contraseña</label>
                                 <div class="login__box">
                                     <input class="login__input" type="password" name="contrasena" id="password" placeholder="Ingrese Contraseña" required />
                                     <i class="ri-eye-off-line login__eye" id="input-icon"></i>

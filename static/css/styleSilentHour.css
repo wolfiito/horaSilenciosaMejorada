@@ -1,10 +1,17 @@
+:root{
+
+    --color-cambiar-nombre-1: #F4D1AE;
+    --color-cambiar-nombre-2: #E8A565;
+    --background-textarea-focus: #E65353;
+    --color-cambiar-nombre-4: #66101F;
+    --color-text-textarea: #1B2021; 
+}
 .container{
-    grid-column: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .contenedor_cita{
@@ -58,14 +65,13 @@
     justify-content: center;
 }
 
-
 .vivelo:after {
     content: "";
     position: absolute;
-    min-width: 25%;
+    min-width: 55%;
     border-bottom: 0.0000001em solid var(--color-titulos); /* Grosor de la línea y color */
     bottom: 0; /* Coloca la línea en la parte inferior del texto */
-    left: 0;
+    left: -15px;
 }
 
 .comentario:after{
@@ -74,28 +80,25 @@
     min-width: 50%;
     border-bottom: 0.0000001em solid var(--color-titulos); /* Grosor de la línea y color */
     bottom: 0; /* Coloca la línea en la parte inferior del texto */
-    left: 0;
+    left: -10px;
 }
 .devocional-container{
-    width: 85%;
+    width: 100%;
 }
 .hs_text{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 200;
     line-height: 1.5;
     color: var(--color-texto);
-    text-align: justify;
+    text-align: left;
     padding: 20px 0px 20px 0px;
-    white-space: break-spaces;
 }
 
 form{
-    width: 85%;
-    margin:auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    display: flex;
     grid-template-rows: repeat(4,auto);
-    justify-items: left;
+    flex-direction: column;
 }
 
 #contenedor label {
@@ -106,44 +109,21 @@ form{
     justify-self: left;
 }
 
-.exp_autor{
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-#exp_autor{
-    grid-area: 2 / 1 / 3 / 3;
-}
-
-.apl_vida{
-    grid-area: 3 / 1 / 4 / 2;
-}
-
-#apl_vida{
-    grid-area: 4 / 1 / 5 / 3;
-}
-
-.dudas{
-    grid-area: 5 / 1 / 6 / 2;
-}
-
-#dudas{
-    grid-area: 6 / 1 / 7 / 3;
-}
-
-.form-button{
-    grid-area: 8 / 1 / 9 / 3 ;
-}
-
-#contenedor textarea {
-    width: 100%;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 1px solid var(--color-borde-vive);
-    height: 5vh;
-    border-radius: 3px;
-    resize: none;
-    font-size: 15px;
-    transition: transform 0.5s;
+.form-textarea{
+    margin-top: 5px;
+    display: block;
+    overflow: hidden;
+    padding: 10px 5px 10px 5px;
+    font-size: 14px;
+    background: transparent;
+    border-bottom: 2px solid var(--color-borde-vive);
+    color: var(--color-text-textarea);
+    resize: both;
+    &:focus{
+        background-color: var(--background-textarea-focus);
+      border: none;
+      outline: none;
+    }
 }
 
 #contenedor textarea:focus {
@@ -205,10 +185,8 @@ form{
     }
     
     .hs_text{
-        font-size: 1.2rem;
         font-weight: 200;
-        line-height: 1.2;
-        padding: 5px 0px 5px 0px;
+        line-height: 1.5;
     }    
 }
 
@@ -221,28 +199,28 @@ form{
     }
     
     .cita_biblica .link-cita{
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 700;
     }
     .hs_text{
         font-size: 1.2rem;
         font-weight: 200;
-        line-height: 1.2;
-        padding: 5px 0px 5px 0px;
+        line-height: 1.5;
+        padding: 10px 0px 10px 0px;
     }  
     .dia_dev {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     .contenedor-principal {
         grid-template-columns: 1fr;
     }
 
     .comentario, .vivelo {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
 
     #contenedor label {
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
     #contenedor button{
