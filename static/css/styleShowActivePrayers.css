@@ -1,3 +1,5 @@
+
+
 .contenedor-principal-peticiones{
     width: 100%;
     display: flex;
@@ -68,10 +70,50 @@
     box-shadow: -1px -1px 6px 0px var(--color-bs-peticion);
 }
 
-.botones-peticiones{
+.botones-peticiones {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+}
+
+.cuadrado {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: black;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    align-items: center;
+}
+
+.circulo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: aliceblue;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cuadrado span {
+    position: absolute;
+    font-size: 12px;
+    float: unset;
+    margin-top: 53px;
+    color: var(--color-txt-with-hover);
+    bottom: 0px;
+    font-weight: 500;
+}
+
+.ri-add-line, .ri-check-double-line, .ri-check-line {
+    font-size: 30px;
 }
 
 .contenido-tareas {
@@ -137,6 +179,8 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-dialog {

@@ -2,6 +2,7 @@
 
 {% block head %}
     {{ super() }}
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styleShowActivePrayers.css') }}">
 {% endblock head %}
 
@@ -13,38 +14,52 @@
 {% block contenido %}
     <section class="contenedor-principal-peticiones">
         <section class="botones-peticiones">
-            <button type="button" class="botones-oracion" data-bs-toggle="modal" data-bs-target="#modalAgregarTarea">Agregar Petición Oración</button>
-            <button class="botones-oracion" onclick="mostrarTareas('activas')">Mostrar Oraciones Activas</button>
-            <button class="botones-oracion" onclick="mostrarTareas('finalizadas')">Mostrar Oraciones Finalizadas</button>
-
-            <!-- Modal para agregar tarea -->
-            <div class="modal" id="modalAgregarTarea">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Nueva Petición de Oración</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="cerrarModal()"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="formAgregarTarea">
-                                <div class="form-group mb-3">
-                                    <label for="titulo">Título Petición</label>
-                                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Coloca un título breve" required>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label class="col-form-label" for="descripcion">Descripción Petición</label>
-                                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Trata de ser muy específico con tu petición"  required></textarea>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Agregar Tarea</button>
-                                </div>
-                            </form>
-                        </div>
+            <button type="button" class="cuadrado" id="abrirModal">
+                <div class="circulo">
+                    <i class="ri-add-line"></i>
+                </div>
+                <span>Agregar Oración</span>
+            </button>
+            <button type="button" class="cuadrado" onclick="mostrarTareas('activas')">
+                <div class="circulo">
+                    <i class="ri-check-line"></i>
+                </div>
+                <span>Activas</span>
+            </button>
+            <button type="button" class="cuadrado" onclick="mostrarTareas('finalizadas')">
+                <div class="circulo">
+                    <i class="ri-check-double-line"></i>
+                </div>
+                <span>Respondidas</span>
+            </button>
+        </section>
+        <!-- Modal para agregar tarea -->
+        <div class="modal" id="modalAgregarTarea">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Nueva Petición de Oración</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="cerrarModal()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formAgregarTarea">
+                            <div class="form-group mb-3">
+                                <label for="titulo">Título Petición</label>
+                                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Coloca un título breve" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="col-form-label" for="descripcion">Descripción Petición</label>
+                                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Trata de ser muy específico con tu petición"  required></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Agregar Tarea</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <section class="contenido-tareas" id="contenido-tareas-activas">
             {% if not tareas | selectattr('isActive', 'equalto', 'True') | list %}

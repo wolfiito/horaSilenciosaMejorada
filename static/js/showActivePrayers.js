@@ -133,7 +133,11 @@ document.getElementById('formCerrarPeticion').addEventListener('submit', functio
     });
 });
 
-function cerrarModal() {
-    var modal = document.getElementById('modalAgregarTarea');
-    modal.style.display = 'none';
-}
+// Obtener referencias al botón de abrir modal y al modal
+const botonAbrirModal = document.getElementById("abrirModal");
+const modal = document.getElementById("modalAgregarTarea");
+
+// Agregar evento de clic al botón de abrir modal
+botonAbrirModal.addEventListener("click", function() {
+  modal.style.display = "flex"; // Mostrar el modal
+});
