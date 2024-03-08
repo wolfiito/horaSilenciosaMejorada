@@ -7,7 +7,7 @@
         "testimonio": "Si me dieron el nuevo contrato. ",
         "total": 9,
         "isActive": "False",
-        "isAdmin": "False"
+        "visibility": "False"
     },
     {
         "titulo": "Salud Cecilia Verdi",
@@ -17,7 +17,7 @@
         "testimonio": "Gracias a Dios estoy mucho mejor y me he recuperado casi por completo.",
         "total": 21,
         "isActive": "False",
-        "isAdmin": "False"
+        "visibility": "False"
     },
     {
         "titulo": "Salud Miguel Verdi (Actualizado)",
@@ -27,70 +27,144 @@
         "testimonio": "Le fue muy bien en su cita, ya s\u00f3lo es necesario hacer unos estudios para descartar da\u00f1o neurol\u00f3gico, pero gracias a Dios se ha recuperado bastante bien (:",
         "total": 26,
         "isActive": "False",
-        "isAdmin": "False"
+        "visibility": "False"
     },
     {
-        "titulo": "asdasd",
-        "descripcion": "sadadsad",
-        "fechaInicio": "23-febrero-2024",
+        "titulo": "Salvaci\u00f3n de Rogelio Soto",
+        "descripcion": "Oraci\u00f3n de los lideres. Oremos por la vida de Rogelio Soto, \u00e9l conoce de Dios pero no quiere recibirlo en su vida, esta muy confundido por las circunstancias que ha vivido con su familia. Oren por Rub\u00e9n para que Dios pueda utilizarlo como la herramienta que Dios pueda usar. Oren para que se anime a ir a campamento y que asista m\u00e1s seguido los s\u00e1bados",
+        "fechaInicio": "22-Enero-2024",
         "fechaFinal": "",
         "testimonio": "",
         "total": 4,
         "isActive": "True",
-        "isAdmin": "True",
+        "visibility": "True"
+    },
+    {
+        "titulo": "Salvaci\u00f3n, afirmaci\u00f3n Luz",
+        "descripcion": "Oraci\u00f3n de los lideres. Oremos por Luz, ella fue a campamento es muy peque\u00f1a est\u00e1 pasando por una situaci\u00f3n dif\u00edcil para una ni\u00f1a de su edad, su mam\u00e1 se est\u00e1 casando con un hombre reci\u00e9n divorciado, actualmente vive en casa de \u00e9l y los hijos de \u00e9l aunqe no estoy seguro, podr\u00eda ser que la traten mal o le den rechazo, yo conozo a los hijos y al sr desde que era un ni\u00f1o (Por eso podr\u00eda decir que seguro si le hacen el feo). Su pap\u00e1 natural al parecer lleva desaparecido varios a\u00f1os. Ella afirm\u00f3 haber aceptado al Sr como su Salvador, lamentablemente no podemos darle el seguimiento deseado por la distancia.",
+        "fechaInicio": "26-Febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 4,
+        "isActive": "True",
+        "visibility": "True"
+    },
+    {
+        "titulo": "Salvaci\u00f3n Eli Reyes",
+        "descripcion": "Ella est\u00e1 pasando situaciones que la hacen pensar que Dios simplemente no existe, hay m\u00e1s transfondo aqu\u00ed pero solo pidamos a Dios por su vida y por esas situaciones que est\u00e9 pasando",
+        "fechaInicio": "26-Febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 4,
+        "isActive": "True",
+        "visibility": "True"
+    },
+    {
+        "titulo": "Campamento",
+        "descripcion": "Oremos por este evento, que sea de bendici\u00f3n y que podamos organizarnos",
+        "fechaInicio": "26-Febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 4,
+        "isActive": "True",
+        "visibility": "True"
+    },
+    {
+        "titulo": "Vasti y Miguel",
+        "descripcion": "Pa que el arroz se cuaje :3 Oremos por esta relaci\u00f3n que sea de bendici\u00f3n y conforme a la volunta de Dios",
+        "fechaInicio": "26-Febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 5,
+        "isActive": "True",
+        "visibility": "True"
+    },
+    {
+        "titulo": "Salud Rub\u00e9n ",
+        "descripcion": "Llevo algunos meses con problemas en mi espalda. Estos \u00faltimos d\u00edas mi dolor incremento, pero tambi\u00e9n el de mis piernas :( Oro para tener el tiempo, dinero y paciencia para poder atenderme.",
+        "fechaInicio": "24-febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 8,
+        "isActive": "True",
+        "visibility": "False",
         "creator": "Alejandro"
     },
     {
-        "titulo": "asdsadsa",
-        "descripcion": "dasdsad",
-        "fechaInicio": "23-febrero-2024",
+        "titulo": "Salud Cahl ",
+        "descripcion": "Orar por la salud que sufri\u00f3 una quemadura del 30% de su cuerpo y le est\u00e1n haciendo injertos de piel. Provisi\u00f3n, Paz para su familia ",
+        "fechaInicio": "24-febrero-2024",
         "fechaFinal": "",
         "testimonio": "",
-        "total": 1,
+        "total": 9,
         "isActive": "True",
-        "isAdmin": "False",
-        "creator": "Luz"
+        "visibility": "False",
+        "creator": "Alejandro"
     },
     {
-        "titulo": "de Rogelio Soto",
-        "descripcion": "Oraci\u00f3n de los lideres. Oremos por la vida de Rogelio Soto, \u00e9l conoce de Dios pero no quiere recibirlo en su vida, esta muy confundido por las circunstancias que ha vivido con su familia. Oren por Rub\u00e9n para que Dios pueda utilizarlo como la herramienta que Dios pueda usar. Oren para que se anime a ir a campamento y que asista m\u00e1s seguido los s\u00e1bados",
-        "fechaInicio": "22-Enero-2024",
+        "titulo": "Paz y tranquilidad de Cris)",
+        "descripcion": "\u00daltimamente he estado muy ansioso que me muerdo mucho la u\u00f1as y los dedos en general, poder encontrar tranquilidad en el se\u00f1or \ud83d\ude00\ud83e\udef6\ud83c\udffc",
+        "fechaInicio": "24-febrero-2024",
         "fechaFinal": "",
         "testimonio": "",
+        "total": 10,
+        "isActive": "True",
+        "visibility": "False",
+        "creator": "Cris"
+    },
+    {
+        "titulo": "Salud Vicky",
+        "descripcion": "El Pstor Miguel nos pide Que Dios pueda restaurar la salud de su mam\u00e1",
+        "fechaInicio": "24-febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 10,
+        "isActive": "True",
+        "visibility": "False",
+        "creator": "Miguel"
+    },
+    {
+        "titulo": "Trabajo de Mike ",
+        "descripcion": "Trabajo en un grupo y ten\u00edamos un evento ya programado, nos cancelaron el mismo d\u00eda y ya van 2 eventos que nos cancelan. Es el \u00fanico grupo donde tengo una remuneraci\u00f3n econ\u00f3mica adem\u00e1s que se programa un evento 1 vez cada mes o mes y medio.\nAgradecer\u00eda que orar por ese aspecto y que pueda encontrar trabajo.\nOtro es que me ofrecieron dar clases y quisiera saber si es lo que Dios desea para mi que se de buena forma. ",
+        "fechaInicio": "24-febrero-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 10,
+        "isActive": "True",
+        "visibility": "False",
+        "creator": "Mike"
+    },
+    {
+        "titulo": "Recitales y fin de semestre de Meli",
+        "descripcion": "Se adelant\u00f3 una semana el final de semestre y los recitales, que Dios me de la capacidad, paz y poder organizar mis tiempos bien para no morir en el intento.",
+        "fechaInicio": "5-marzo-2024",
+        "fechaFinal": "",
+        "testimonio": "",
+        "total": 2,
+        "isActive": "True",
+        "visibility": "True",
+        "creator": "Melissa"
+    },
+    {
+        "titulo": "Prueba",
+        "descripcion": "Prueba",
+        "fechaInicio": "5-marzo-2024",
+        "fechaFinal": "",
+        "testimonio": "Prueba Cerrada",
         "total": 1,
         "isActive": "False",
-        "isAdmin": "True"
+        "visibility": "True",
+        "creator": "Alejandro"
     },
     {
-        "titulo": "Rogelio Soto",
-        "descripcion": "Oraci\u00f3n de los lideres. Oremos por la vida de Rogelio Soto, \u00e9l conoce de Dios pero no quiere recibirlo en su vida, esta muy confundido por las circunstancias que ha vivido con su familia. Oren por Rub\u00e9n para que Dios pueda utilizarlo como la herramienta que Dios pueda usar. Oren para que se anime a ir a campamento y que asista m\u00e1s seguido los s\u00e1bados",
-        "fechaInicio": "22-Enero-2024",
+        "titulo": "Salud Elizabeth Rios",
+        "descripcion": "Mam\u00e1 de Fer y Rub\u00e9n, ha tenido mucho v\u00e9rtigo que ni pararse puede. Para que su salud mejore ",
+        "fechaInicio": "6-marzo-2024",
         "fechaFinal": "",
         "testimonio": "",
-        "total": 1,
+        "total": 2,
         "isActive": "True",
-        "isAdmin": "True"
-    },
-    {
-        "titulo": "Prueba 2",
-        "descripcion": "dasdsad",
-        "fechaInicio": "23-febrero-2024",
-        "fechaFinal": "",
-        "testimonio": "",
-        "total": 1,
-        "isActive": "True",
-        "isAdmin": "False",
-        "creator": "Luz"
-    },
-    {
-        "titulo": "Prueba 3",
-        "descripcion": "dasdsad",
-        "fechaInicio": "23-febrero-2024",
-        "fechaFinal": "",
-        "testimonio": "",
-        "total": 1,
-        "isActive": "True",
-        "isAdmin": "True",
-        "creator": "Astrid"
+        "visibility": "True",
+        "creator": "Alejandro"
     }
 ]

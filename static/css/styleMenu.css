@@ -1,21 +1,61 @@
+:root{
+    /* MENÚ */
+    --color-bar-bg-menu:    #F4D1AE;
+    --color-texto:            #1B2021;
+    --color-texto-menu:       #1B2021;
+    --color-menu-hover:       #1B2021;
+    --color-menu-hover-texto: #F4D1AE;
+    --color-boton-texto:      #F4D1AE;
+    --color-boton:            #1B2021;
+    --color-btn-circulo-mini:    #1B2021;
+    --color-circulo:          #E8A565;
+    --color-linea:            #1B2021;
+    --color-switch-base :     #1B2021;
+    --color-switch-circulo:   #F4D1AE;
+    --color-scroll:           #c0c0c0;
+    --color-scroll-hover:     #868686;
+}
+
+.dark-mode{
+    /* MENÚ */
+    --color-bar-bg-menu:   #1B2021;
+    --color-title-menu:      #E8A565;
+    --color-texto:           #E8A565;
+    --color-texto-menu:      #E8A565;
+    --color-menu-hover:      #E65353;
+    --color-menu-hover-texto:#F4D1AE;
+    --color-boton-texto:     #1B2021;
+    --color-boton:           #1B2021;
+    --color-bg-menu-circulo: #F4D1AE;
+    --color-btn-circulo-mini:   #1B2021;
+    --color-linea:           #66101F;
+    --color-switch-base :    #F4D1AE;
+    --color-switch-circulo:  #1B2021;
+    --color-scroll:          #F4D1AE;
+    --color-scroll-hover:    #66101F;
+}
+
+
 /*-----------------Menu*/
 .menu{
     position: fixed;
     width: 40px;
     height: 40px;
     font-size: 30px;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     cursor: pointer;
     background-color: var(--color-circulo);
-    color: var(--color-boton-circulo);
+    color: var(--color-btn-circulo-mini);
     right: 15px;
     top: 15px;
     z-index: 100;
 }
-
+.menu ion-icon:nth-child(2){
+    display: none;
+}
 /*----------------Barra Lateral*/
 .barra-lateral{
     position: fixed;
@@ -26,23 +66,21 @@
     height: 100%;
     overflow: hidden;
     padding: 20px 15px;
-    background-color: var(--color-barra-lateral);
+    background-color: var(--color-bar-bg-menu);
     transition: width 0.5s ease,background-color 0.3s ease,left 0.5s ease;
     z-index: 50;
+}
+
+.barra-lateral{
+    position: fixed;
+    left: -250px;
 }
 
 .mini-barra-lateral{
     width: 80px;
 }
 
-.barra-lateral span{
-    width: 100px;
-    white-space: nowrap;
-    font-size: 18px;
-    text-align: left;
-    opacity: 1;
-    transition: opacity 0.5s ease,width 0.5s ease;
-}
+
 .barra-lateral span.oculto{
     opacity: 0;
     width: 0;
@@ -51,11 +89,28 @@
 .barra-lateral .nombre-pagina{
     width: 100%;
     height: 45px;
-    color: var(--color-texto);
-    margin-bottom: 40px;
+    color: var(--color-title-menu);
+    /* margin-bottom: 40px; */
     display: flex;
     align-items: center;
+    justify-content: center;
 }
+
+.barra-lateral .titulo-nav{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.barra-lateral .navegador-opcion{
+    width: 100px;
+    white-space: nowrap;
+    font-size: 1.3rem;
+    text-align: left;
+    opacity: 1;
+    transition: opacity 0.5s ease,width 0.5s ease;
+}
+
 .barra-lateral .nombre-pagina ion-icon{
     min-width: 50px;
     font-size: 40px;
@@ -75,6 +130,9 @@
     border-radius: 10px;
     background-color: var(--color-boton);
     color: var(--color-boton-texto);
+}
+.barra-lateral .boton{
+    border-radius: 15px;
 }
 .barra-lateral .boton ion-icon{
     min-width: 50px;
@@ -118,7 +176,10 @@
     min-width: 50px;
     font-size: 20px;
 }
-
+.max-barra-lateral{
+    width: 65%;
+    left: 0;
+}
 /*-----------------> Linea*/
 
 .barra-lateral .linea{
@@ -135,6 +196,9 @@
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
+}
+.barra-lateral .modo-oscuro{
+    margin-bottom: 3px;
 }
 
 .barra-lateral .modo-oscuro .info{
@@ -225,7 +289,7 @@
     color: var(--color-menu-hover-texto);
 }
 
-main{
+/* main{
     margin-left: 250px;
     padding: 0px;
     transition: margin-left 0.5s ease;
@@ -233,58 +297,11 @@ main{
 
 main.min-main{
     margin-left: 80px;
+} */
+
+main{
+    margin-left: 0;
 }
-
-
-
-/*------------------> Responsive*/
-@media (max-height: 660px){
-    .barra-lateral .nombre-pagina{
-        margin-bottom: 5px;
-    }
-    
-    .barra-lateral .modo-oscuro{
-        margin-bottom: 3px;
-    }
-}
-@media (max-width: 600px){
-    .barra-lateral{
-        position: fixed;
-        left: -250px;
-    }
-    .max-barra-lateral{
-        width: 70%;
-        left: 0;
-    }
-    .barra-lateral .nombre-pagina{
-        justify-content: center;
-        margin-bottom: 10px;
-    }
-    .barra-lateral .navegador-opcion{
-        font-size: 24px;
-    }
-    .barra-lateral .boton{
-        border-radius: 15px;
-    }
-    .barra-lateral .create-new{
-        font-size: 24px;
-    }
-    .barra-lateral .titulo-nav{
-        font-size: 28px;
-        font-weight: 600;
-    }
-    .menu{
-        display: flex;
-    }
-    .menu ion-icon:nth-child(2){
-        display: none;
-    }
-
-    main{
-        margin-left: 0;
-    }
-    main.min-main{
-        margin-left: 0;
-    }
-    
+main.min-main{
+    margin-left: 0;
 }

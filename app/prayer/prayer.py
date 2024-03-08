@@ -100,35 +100,22 @@ def sumar_veces_oradas():
 # Ruta para marcar una tarea como completa
 @oracion_bp.route('/marcar_completa', methods=['POST'])
 def marcar_completa():
-    data = request.get_json()
-    index = data.get('index', None)
-    testimonio = data.get('testimonio', '')  # Obtener el testimonio ingresado por el usuario
+    data = request.json
+    index = int(data.get('index')) - 1
+    testimonio = data.get('testimonio')
+    with open('data/prayers.json', 'r') as file:
+        tareas = json.load(file)
 
-    if index is not None:
-        index = int(index) - 1
-
-        with open('data/prayers.json', 'r', encoding='utf-8') as json_file:
-            tareas = json.load(json_file)
-
-            if 0 <= index < len(tareas):
-                tarea = tareas[index]
-
-                if tarea['isActive'] == 'True':
-                    tarea['isActive'] = 'False'
-                    tarea['fechaFinal'] = format_date(datetime.now(), format='d-MMMM-y', locale='es_ES')
-
-                    # Agregar el testimonio si se proporciona
-                    if testimonio:
-                        tarea['testimonio'] = testimonio
-
-        with open('data/prayers.json', 'w', encoding='utf-8') as json_file:
-            json.dump(tareas, json_file, indent=2)
-
-        # Devolver las tareas actualizadas en la respuesta
-        return jsonify(success=True, tareas_actualizadas=tareas)
+    if index is not None and 0 <= index < len(tareas):
+        print(tareas[index])
+        tareas[index]['isActive'] = "False"
+        tareas[index]['testimonio'] = testimonio
+        with open('data/prayers.json', 'w') as file:
+            json.dump(tareas, file)
+            
+        return jsonify({'message': 'Tarea actualizada correctamente'})
     else:
-        return jsonify(success=False, error='Índice no proporcionado')
-
+        return jsonify({'error': 'Índice de tarea inválido'})
 
 @oracion_bp.route('/agregar_oracion', methods=['POST'])
 def agregar_oracion():
@@ -136,16 +123,16 @@ def agregar_oracion():
     if data:
         titulo = data.get('titulo', '')
         descripcion = data.get('descripcion', '')
-
+        visibilidad =  data.get('visibilidad', '')
         # Obtener el rol del usuario actual (esto dependerá de cómo obtengas el rol en tu aplicación Flask)
         rol = current_user.role
 
         # Obtener el usuario creador (esto dependerá de cómo obtengas el usuario en tu aplicación Flask)
         creator = current_user.id
 
-        if rol == 'Admin':
+        if visibilidad == 'lideres':
             isAdmin = "True"
-        else:
+        elif visibilidad == 'todos':
             isAdmin = "False"
 
         nueva_oracion = {
@@ -156,7 +143,7 @@ def agregar_oracion():
             "testimonio": "",
             "total": 1,
             "isActive": "True",
-            "isAdmin": isAdmin,
+            "visibility": isAdmin,
             "creator": creator
         }
 

@@ -51,9 +51,18 @@
                                 <label class="col-form-label" for="descripcion">Descripción Petición</label>
                                 <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Trata de ser muy específico con tu petición"  required></textarea>
                             </div>
+                            <div class="form-group mb-3">
+                                <label>
+                                    <input type="radio" name="compartir" value="todos" checked> Compartir con Todos
+                                </label><br>
+                                <label>
+                                    <input type="radio" name="compartir" value="lideres"> Compartir únicamente con líderes
+                                </label>
+                            </div>
+                            
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Agregar Tarea</button>
+                                <button type="submit" class="btn btn-primary">Agregar Oración</button>
                             </div>
                         </form>
                     </div>
@@ -63,10 +72,10 @@
 
         <section class="contenido-tareas" id="contenido-tareas-activas">
             {% if not tareas | selectattr('isActive', 'equalto', 'True') | list %}
-                <p>No hay tareas disponiblesasdsad.</p>
+                <p>No hay tareas disponibles.</p>
             {% else %}
                 {% for tarea in tareas %}
-                    {% if tarea['isAdmin'] == 'True' and rol == 'Admin' %}
+                    {% if tarea['visibility'] == 'True' and rol == 'Admin' or user == tarea['creator'] %}
                         {% if tarea['isActive'] == "True" %}
                             <div class="contenedor-peticion">
                                 <div class="peticion">
@@ -75,7 +84,7 @@
                                     </div>
                                     <div class="botones">
                                         <ion-icon name="hand-right" onclick="sumarOracion('{{ loop.index }}')"></ion-icon>
-                                        <ion-icon name="checkmark-circle" data-bs-toggle="modal" data-bs-target="#modalCerrarTarea"></ion-icon>
+                                        <ion-icon name="checkmark-circle" data-bs-toggle="modal" data-bs-target="#modalCerrarTarea" onclick="toggleDesIcon('{{ loop.index }}')"></ion-icon>
                                         <ion-icon id="desc" name="chevron-forward-circle"
                                         onclick="toggleDescripcion(this)"></ion-icon>
                                     </div>
@@ -85,7 +94,7 @@
                                 </div>
                             </div>
                         {% endif %}
-                    {% elif tarea['isAdmin'] == 'False' %}
+                    {% elif tarea['visibility'] == 'False' %}
                         {% if tarea['isActive'] == "True" %}
                             <div class="contenedor-peticion">
                                 <div class="peticion">
@@ -95,7 +104,7 @@
                                     <div class="botones">
                                         <ion-icon name="hand-right" onclick="sumarOracion('{{ loop.index }}')"></ion-icon>
                                         {% if rol == 'Admin' or user == tarea['creator'] %}
-                                            <ion-icon name="checkmark-circle" data-bs-toggle="modal" data-bs-target="#modalCerrarTarea"></ion-icon>
+                                            <ion-icon name="checkmark-circle" data-bs-toggle="modal" data-bs-target="#modalCerrarTarea" onclick="toggleDesIcon('{{ loop.index }}')"></ion-icon>
                                         {% endif %}
                                         <ion-icon id="desc" name="chevron-forward-circle"
                                         onclick="toggleDescripcion(this)"></ion-icon>
@@ -109,7 +118,7 @@
                     {% endif %}
                 {% endfor %}
             {% endif %}
-            <!-- Modal para agregar tarea -->
+            <!-- Modal para cerrar tarea -->
             <div class="modal" id="modalCerrarTarea">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -125,9 +134,26 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Agregar Tarea</button>
+                                    <button type="submit" class="btn btn-primary">Cerrar Oración</button>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="modalActualizado">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Petición Respondida</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="cerrarModal()"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Gracias por compartir con nosotros tus cargas <3</span>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="cerrarModal()">Cerrar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -138,7 +164,7 @@
                 <p>No hay oraciones respondidas</p>
             {% else %}
                 {% for tarea in tareas %}
-                    {% if tarea['isAdmin'] == 'True' and rol == 'Admin' %}
+                    {% if tarea['visibility'] == 'True' and rol == 'Admin' or user == tarea['creator']  %}
                         {% if tarea['isActive'] == "False" %}
                             <div class="contenedor-peticion">
                                 <div class="peticion">
@@ -159,7 +185,7 @@
                                 </div>
                             </div>
                         {% endif %}
-                    {% elif tarea['isAdmin'] == 'False' %}
+                    {% elif tarea['visibility'] == 'False' %}
                         {% if tarea['isActive'] == "False" %}
                             <div class="contenedor-peticion">
                                 <div class="peticion">
@@ -194,3 +220,5 @@
 {% endblock script %}
 
 <!-- onclick="marcarCompleta('{{ loop.index }}')" -->
+
+<!-- Modal para agregar tarea -->

@@ -27,22 +27,6 @@
     --color-event: #E65353;
     --color-txt-event: #1B2021;
     
-    /* MENÚ */
-    --color-barra-lateral:    #F4D1AE;
-    --color-texto:            #1B2021;
-    --color-texto-menu:       #1B2021;
-    --color-menu-hover:       #1B2021;
-    --color-menu-hover-texto: #F4D1AE;
-    --color-boton-texto:      #F4D1AE;
-    --color-boton:            #1B2021;
-    --color-boton-circulo:    #1B2021;
-    --color-circulo:          #E8A565;
-    --color-linea:            #1B2021;
-    --color-switch-base :     #1B2021;
-    --color-switch-circulo:   #F4D1AE;
-    --color-scroll:           #c0c0c0;
-    --color-scroll-hover:     #868686;
-
     /* HS */
     --color-text-boton: #F4D1AE;
     --color-titulo:     #1B2021;
@@ -77,23 +61,6 @@
     --color-subs-calendario:  #F4D1AE;
     --color-event: #E65353;
     --color-txt-event: #F4D1AE;
-
-    /* MENÚ */
-    --color-barra-lateral:   #1B2021;
-    --color-texto:           #E8A565;
-    --color-texto-menu:      #E8A565;
-    --color-menu-hover:      #E65353;
-    --color-menu-hover-texto:#F4D1AE;
-    --color-boton-texto:     #1B2021;
-    --color-boton:           #1B2021;
-    --color-circulo:         #F4D1AE;
-    --color-boton-circulo:   #1B2021;
-    --color-linea:           #66101F;
-    --color-switch-base :    #F4D1AE;
-    --color-switch-circulo:  #1B2021;
-    --color-scroll:          #F4D1AE;
-    --color-scroll-hover:    #66101F;
-
     /* HS */
     --color-text-boton: #F4D1AE;
     --color-titulo:     #F4D1AE;

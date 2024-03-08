@@ -25,32 +25,31 @@ function sumarOracion(index) {
         console.error('Error al enviar la solicitud:', error);
     });
 }
+// function marcarCompleta(index) {
+//     // Pedir al usuario que ingrese su testimonio
+//     const testimonio = prompt("Ingresa tu testimonio:");
 
-function marcarCompleta(index) {
-    // Pedir al usuario que ingrese su testimonio
-    const testimonio = prompt("Ingresa tu testimonio:");
+//     if (testimonio !== null) {  // El usuario hizo clic en "Aceptar"
+//         const xhr = new XMLHttpRequest();
+//         xhr.open('POST', '/marcar_completa', true);
+//         xhr.setRequestHeader('Content-Type', 'application/json');
 
-    if (testimonio !== null) {  // El usuario hizo clic en "Aceptar"
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '/marcar_completa', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
+//         xhr.onreadystatechange = function () {
+//             if (xhr.readyState === XMLHttpRequest.DONE) {
+//                 if (xhr.status === 200) {
+//                     const response = JSON.parse(xhr.responseText);
+//                     if (response.success) {
+//                         actualizarInterfaz(response.tareas_actualizadas);
+//                     } else {
+//                         console.error('Error al marcar la tarea como completa');
+//                     }
+//                 }
+//             }
+//         };
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    const response = JSON.parse(xhr.responseText);
-                    if (response.success) {
-                        actualizarInterfaz(response.tareas_actualizadas);
-                    } else {
-                        console.error('Error al marcar la tarea como completa');
-                    }
-                }
-            }
-        };
-
-        xhr.send(JSON.stringify({ index: index, testimonio: testimonio }));
-    }
-}
+//         xhr.send(JSON.stringify({ index: index, testimonio: testimonio }));
+//     }
+// }
 
 function actualizarInterfaz() {
     // Redirigir a la página principal
@@ -75,7 +74,7 @@ document.getElementById('formAgregarTarea').addEventListener('submit', function(
 
     const titulo = document.getElementById('titulo').value;
     const descripcion = document.getElementById('descripcion').value;
-
+    const visibilidad = document.querySelector('input[name="compartir"]:checked').value;
     // Realizar la solicitud POST para agregar una nueva tarea
     fetch('/agregar_oracion', {
         method: 'POST',
@@ -85,6 +84,7 @@ document.getElementById('formAgregarTarea').addEventListener('submit', function(
         body: JSON.stringify({
             titulo: titulo,
             descripcion: descripcion,
+            visibilidad: visibilidad
         }),
     })
     .then(response => response.json())
@@ -105,10 +105,41 @@ function cerrarModal() {
     modal.style.display = 'none';
 }
 
+function cerrarModal1() {
+    var modalCerrarTarea = document.getElementById('modalCerrarTarea');
+    modalCerrarTarea.style.display = 'none';
+
+    var modalActualizado = document.getElementById('modalActualizado');
+    modalActualizado.style.display = 'block';
+
+    // Cierra el modalActualizado después de 4 segundos
+    setTimeout(function() {
+        modalActualizado.style.display = 'none';
+
+        // Espera 300 milisegundos antes de recargar la página
+        setTimeout(function() {
+            location.reload(); // Recargar la página
+        }, 300);
+    }, 4000); // Muestra el modalActualizado durante 4 segundos
+}
+
+
+var completedPray;
+
+function toggleDesIcon(index) {
+    console.log(index)
+    completedPray = index;
+}
+
 document.getElementById('formCerrarPeticion').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const testimonio = document.getElementById('testimonio').value;
+    var testimonio = document.getElementById('testimonio').value;
+    console.log(completedPray)
+    var data = {
+        testimonio: testimonio,
+        index: completedPray
+    };
 
     // Realizar la solicitud POST para agregar una nueva tarea
     fetch('/marcar_completa', {
@@ -116,22 +147,23 @@ document.getElementById('formCerrarPeticion').addEventListener('submit', functio
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            testimonio: testimonio
-        }),
+        body: JSON.stringify(data),
     })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message); // Mostrar mensaje de éxito o error
-        if (data.success) {
-            // Recargar la página para mostrar la nueva tarea
-            window.location.reload();
+    .then(response =>{
+        if (response.ok) {
+            // Mostrar el modal
+            var modal = document.getElementById('modalActualizado');
+            modal.style.display = 'block';
+            cerrarModal1()
+        } else {
+            console.error('Error al actualizar Petición')
         }
     })
     .catch(error => {
-        console.error('Error al cerrar la tarea:', error);
+        console.error('Error en la solicitud:', error);
     });
 });
+
 
 // Obtener referencias al botón de abrir modal y al modal
 const botonAbrirModal = document.getElementById("abrirModal");

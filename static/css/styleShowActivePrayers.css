@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    margin-top: 70px;
     height: calc(100vh - 20vh);
     overflow-y: auto;
 }
@@ -71,10 +70,11 @@
 }
 
 .botones-peticiones {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
+    display: flex;  
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 70px;
 }
 
 .cuadrado {
@@ -110,6 +110,10 @@
     color: var(--color-txt-with-hover);
     bottom: 0px;
     font-weight: 500;
+}
+
+.modalActualizado{
+    display: none;
 }
 
 .ri-add-line, .ri-check-double-line, .ri-check-line {
