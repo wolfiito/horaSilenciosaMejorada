@@ -19,9 +19,8 @@
 .dark-mode{
     /* MENÚ */
     --color-bar-bg-menu:   #1B2021;
-    --color-title-menu:      #E8A565;
-    --color-texto:           #E8A565;
-    --color-texto-menu:      #E8A565;
+    --color-title-menu:      #F4D1AE;
+    --color-texto-menu:      #F4D1AE;
     --color-menu-hover:      #E65353;
     --color-menu-hover-texto:#F4D1AE;
     --color-boton-texto:     #1B2021;
@@ -65,7 +64,7 @@
     width: 250px;
     height: 100%;
     overflow: hidden;
-    padding: 20px 15px;
+    padding: 20px 10px;
     background-color: var(--color-bar-bg-menu);
     transition: width 0.5s ease,background-color 0.3s ease,left 0.5s ease;
     z-index: 50;
@@ -89,7 +88,6 @@
 .barra-lateral .nombre-pagina{
     width: 100%;
     height: 45px;
-    color: var(--color-title-menu);
     /* margin-bottom: 40px; */
     display: flex;
     align-items: center;
@@ -98,8 +96,9 @@
 
 .barra-lateral .titulo-nav{
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 10px;
+    color: var(--color-title-menu);
 }
 
 .barra-lateral .navegador-opcion{
@@ -156,8 +155,6 @@
 }
 .barra-lateral .navegacion li{  
     list-style: none;
-    display: flex;
-    margin-bottom: 5px;
 }
 .barra-lateral .navegacion a{
     width: 100%;
@@ -177,7 +174,7 @@
     font-size: 20px;
 }
 .max-barra-lateral{
-    width: 65%;
+    max-width: 65%;
     left: 0;
 }
 /*-----------------> Linea*/
@@ -304,4 +301,42 @@ main{
 }
 main.min-main{
     margin-left: 0;
+}
+
+.dark_mode_txt{
+    font-size: .99rem;
+}
+
+.nombre{
+    font-size: 1.2rem;
+}
+
+@media (min-width: 370px) and (min-height: 600px) {
+    /* Estilos que deseas aplicar para dispositivos con un ancho mínimo de 375px y un alto mínimo de 812px */
+    .barra-lateral .navegacion{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .barra-lateral .navegador-opcion {
+        font-size: 1.3rem;
+        padding-top: 10px;
+    }
+    .barra-lateral .navegacion ion-icon {
+        min-width: 40px;
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 400px) and (min-height: 700px) {
+    .barra-lateral .navegador-opcion {
+        font-size: 1.5rem;
+        padding-top: 10px;
+    }
+
+    .barra-lateral .navegacion a {
+        height: 70px;
+    }
 }
