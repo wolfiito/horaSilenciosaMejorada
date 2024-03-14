@@ -16,7 +16,7 @@ app = Flask(__name__)
 app.secret_key = 'S0l03nt1D10s'
 
 # Configurar el tiempo de vida de la sesión
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=1)
+app.config['PERMANENT_SESSION_LIFETIME'] = 5  # timedelta(seconds=5)
 
 # Configurar Flask-Login
 login_manager = LoginManager(app)
@@ -24,6 +24,8 @@ login_manager = LoginManager(app)
 @login_manager.user_loader
 def load_user(user_id):
     return users.get(user_id)
+
+login_manager.login_view = 'auth.login'
 
 # Registrar blueprints en la aplicación
 app.register_blueprint(auth_bp)
