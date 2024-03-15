@@ -10,6 +10,7 @@
 #     return resultado.strip()
 
 def espaciar_cadena(cadena_a_espaciar):
+    
     return ' '.join(c for c in cadena_a_espaciar if c != ' ')
 
 # Ejemplo de uso
