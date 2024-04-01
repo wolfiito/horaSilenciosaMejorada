@@ -43,7 +43,7 @@ def logout():
 def inicio():
     rol = current_user.role
     usuario = current_user.id
-    return render_template('calendar.html', rol=rol, usuario=usuario)
+    return render_template('index.html', rol=rol, usuario=usuario)
 
 # Cargar usuarios desde el archivo JSON
 with open('data/usuarios.json', 'r', encoding='utf-8') as users_file:
