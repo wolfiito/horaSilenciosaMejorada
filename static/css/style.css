@@ -7,33 +7,49 @@
     --color-cambiar-nombre-5: #1B2021; 
 
     /* Peticion Oraciones */
-    --color-boton-oracion: #1B2021;
+    --color-boton-oracion     : #1B2021;
     --color-text-boton-oracion: #E65353;
-    --color-bg-with-hover: #1B2021;
-    --color-txt-with-hover: #E65353;
-    --color-line-with-hover: #E65353;
-    --color-bg-peticiones: #1B2021;
-    --color-bs-peticion: #E65353;
-    --color-title-peticion: #F4D1AE;
-    --color-exp-peticion: #E65353;
+    --color-bg-with-hover     : #1B2021;
+    --color-txt-with-hover    : #E65353;
+    --color-line-with-hover   : #E65353;
+    --color-bg-peticiones     : #1B2021;
+    --color-bs-peticion       : #E65353;
+    --color-title-peticion    : #F4D1AE;
+    --color-exp-peticion      : #E65353;
 
     /* CALENDARIO */
-    --primary-clr:            #E65353;
+    --primary-clr           : #E65353;
     --color-texto-calendario: #E8A565;
     --color-barra-calendario: #E65353;
-    --background-calendario:  #1B2021;
-    --border-calendar:        #E8A565;
-    --color-subs-calendario:  #E65353;
-    --color-event: #E65353;
-    --color-txt-event: #1B2021;
+    --background-calendario : #1B2021;
+    --border-calendar       : #E8A565;
+    --color-subs-calendario : #E65353;
+    --color-event           : #E65353;
+    --color-txt-event       : #1B2021;
     
+    /* MENÚ */
+    --color-barra-lateral   : #F4D1AE;
+    --color-texto           : #1B2021;
+    --color-texto-menu      : #1B2021;
+    --color-menu-hover      : #1B2021;
+    --color-menu-hover-texto: #F4D1AE;
+    --color-boton-texto     : #F4D1AE;
+    --color-boton           : #1B2021;
+    --color-boton-circulo   : #1B2021;
+    --color-circulo         : #E8A565;
+    --color-linea           : #1B2021;
+    --color-switch-base     : #1B2021;
+    --color-switch-circulo  : #F4D1AE;
+    --color-scroll          : #c0c0c0;
+    --color-scroll-hover    : #868686;
+
     /* HS */
     --color-text-boton: #F4D1AE;
-    --color-titulo:     #1B2021;
-    --color-cita:       #E8A565;
-    --color-fecha:      #1B2021;
-    --color-texto:      #1B2021;
-    --color-titulos:    #E65353;
+    --color-titulo    : #1B2021;
+    --color-cita      : #E8A565;
+    --color-fecha     : #1B2021;
+    --color-texto     : #1B2021;
+    --color-titulos   : #E65353;
     --color-borde-vive: #E65353;
 
     /* BASE */
@@ -42,32 +58,49 @@
 
 .dark-mode{
     /* Peticion Oraciones */
-    --color-boton-oracion: #F4D1AE;
+    --color-boton-oracion     : #F4D1AE;
     --color-text-boton-oracion: #E65353;
-    --color-bg-with-hover: #F4D1AE;
-    --color-txt-with-hover: #E65353;
-    --color-line-with-hover: #E65353;
-    --color-bg-peticiones: #F4D1AE;
-    --color-bs-peticion: #E65353;
-    --color-title-peticion: #1B2021;
-    --color-exp-peticion: #E65353;
+    --color-bg-with-hover     : #F4D1AE;
+    --color-txt-with-hover    : #E65353;
+    --color-line-with-hover   : #E65353;
+    --color-bg-peticiones     : #F4D1AE;
+    --color-bs-peticion       : #E65353;
+    --color-title-peticion    : #1B2021;
+    --color-exp-peticion      : #E65353;
 
     /* CALENDARIO */
-    --primary-clr:            #E65353;
+    --primary-clr           : #E65353;
     --color-texto-calendario: #E8A565;
     --color-barra-calendario: #E65353;
-    --background-calendario:  #1B2021;
-    --border-calendar:        #F4D1AE;
-    --color-subs-calendario:  #F4D1AE;
-    --color-event: #E65353;
-    --color-txt-event: #F4D1AE;
+    --background-calendario : #1B2021;
+    --border-calendar       : #F4D1AE;
+    --color-subs-calendario : #F4D1AE;
+    --color-event           : #E65353;
+    --color-txt-event       : #F4D1AE;
+
+    /* MENÚ */
+    --color-barra-lateral   : #1B2021;
+    --color-texto           : #E8A565;
+    --color-texto-menu      : #E8A565;
+    --color-menu-hover      : #E65353;
+    --color-menu-hover-texto: #F4D1AE;
+    --color-boton-texto     : #1B2021;
+    --color-boton           : #1B2021;
+    --color-circulo         : #F4D1AE;
+    --color-boton-circulo   : #1B2021;
+    --color-linea           : #66101F;
+    --color-switch-base     : #F4D1AE;
+    --color-switch-circulo  : #1B2021;
+    --color-scroll          : #F4D1AE;
+    --color-scroll-hover    : #66101F;
+
     /* HS */
     --color-text-boton: #F4D1AE;
-    --color-titulo:     #F4D1AE;
-    --color-cita:       #E8A565;
-    --color-fecha:      #F4D1AE;
-    --color-texto:      #F4D1AE;
-    --color-titulos:    #E8A565;
+    --color-titulo    : #F4D1AE;
+    --color-cita      : #E8A565;
+    --color-fecha     : #F4D1AE;
+    --color-texto     : #F4D1AE;
+    --color-titulos   : #E8A565;
     --color-borde-vive: #E65353; 
 
     /* BASE */
@@ -75,19 +108,19 @@
 }
 
 *{
-    outline: none;
-    border: none;
+    outline        : none;
+    border         : none;
     text-decoration: none;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
+    margin         : 0;
+    padding        : 0;
+    box-sizing     : border-box;
+    font-family    : 'Outfit', sans-serif;
 }
 
 body{
-    margin: 0; /* Elimina el margen predeterminado del navegador */
-    padding: 0; /* Elimina el relleno predeterminado del navegador */
-    width: 100%; /* Ocupa todo el ancho de la ventana */
-    height: 100vh; /* Ocupa toda la altura de la ventana */
+    margin          : 0; /* Elimina el margen predeterminado del navegador */
+    padding         : 0; /* Elimina el relleno predeterminado del navegador */
+    width           : 100%; /* Ocupa todo el ancho de la ventana */
+    height          : 100vh; /* Ocupa toda la altura de la ventana */
     background-color: var(--background);
 }

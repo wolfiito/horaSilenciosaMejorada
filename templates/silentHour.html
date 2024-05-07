@@ -41,7 +41,7 @@ Devocional
                     <p class="hs_text">{{ entrada_dia_actual['vivelo'] }}</p>
                 </div>
                 {% else %}
-                <p class="hs_text">No hay devocional disponible para el día de hoy.</p>
+                <p class="hs_text">ERROR: NO SE PUEDE MOSTRAR EL DEVOCIONAL DE HOY. MOTIVO: {{ error_message if error_message }} </p>
                 {% endif %}
             </section>
             <form method="POST" action="/hora_silenciosa">
