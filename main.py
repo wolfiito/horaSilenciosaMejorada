@@ -1,13 +1,13 @@
-from flask import Flask
+from flask       import Flask
 from flask_login import LoginManager
+from datetime    import timedelta
 
 from app.devocional.devocional import hora_silenciosa_bp
-from app.auth.auth import auth_bp, users
-from app.calendar.calendar_ import calendar_bp
-from app.prayer.prayer import oracion_bp
+from app.auth.auth             import auth_bp, users
+from app.calendar.calendar_    import calendar_bp
+from app.prayer.prayer         import oracion_bp
 # from app.points.points import puntos_bp
 
-from datetime import timedelta
 
 app = Flask(__name__)
 
@@ -24,7 +24,7 @@ def load_user(user_id):
 
 login_manager.login_view = 'auth.login'
 
-app.register_blueprint(auth_bp)
+app.register_blueprint(auth_bp) 
 app.register_blueprint(calendar_bp)
 app.register_blueprint(hora_silenciosa_bp)
 app.register_blueprint(oracion_bp)

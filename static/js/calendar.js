@@ -1,22 +1,23 @@
-const calendar = document.querySelector(".calendar"),
-    date = document.querySelector(".date"),
-    daysContainer = document.querySelector(".days"),
-    prev = document.querySelector(".prev"),
-    next = document.querySelector(".next"),
-    todayBtn = document.querySelector(".today-btn"),
-    gotoBtn = document.querySelector(".goto-btn"),
-    dateInput = document.querySelector(".date-input"),
-    eventDay = document.querySelector(".event-day"),
-    eventDate = document.querySelector(".event-date"),
-    eventsContainer = document.querySelector(".events"),
-    addEventBtn = document.querySelector(".add-event"),
-    addEventWrapper = document.querySelector(".add-event-wrapper"),
-    addEventCloseBtn = document.querySelector(".close"),
-    addEventTitle = document.querySelector(".event-name"),
-    addEventFrom = document.querySelector(".event-time-from"),
-    addEventTo = document.querySelector(".event-time-to"),
+const 
+    calendar            = document.querySelector(".calendar"),
+    date                = document.querySelector(".date"),
+    daysContainer       = document.querySelector(".days"),
+    prev                = document.querySelector(".prev"),
+    next                = document.querySelector(".next"),
+    todayBtn            = document.querySelector(".today-btn"),
+    gotoBtn             = document.querySelector(".goto-btn"),
+    dateInput           = document.querySelector(".date-input"),
+    eventDay            = document.querySelector(".event-day"),
+    eventDate           = document.querySelector(".event-date"),
+    eventsContainer     = document.querySelector(".events"),
+    addEventBtn         = document.querySelector(".add-event"),
+    addEventWrapper     = document.querySelector(".add-event-wrapper"),
+    addEventCloseBtn    = document.querySelector(".close"),
+    addEventTitle       = document.querySelector(".event-name"),
+    addEventFrom        = document.querySelector(".event-time-from"),
+    addEventTo          = document.querySelector(".event-time-to"),
     addEventDescription = document.querySelector(".event-description"),
-    addEventSubmit = document.querySelector(".add-event-btn");
+    addEventSubmit      = document.querySelector(".add-event-btn");
 
 let daysDiccionary = {
     Sun: 'Domingo',
@@ -29,9 +30,9 @@ let daysDiccionary = {
 }
 
 let today = new Date();
-let activeDay;
+let year  = today.getFullYear();
 let month = today.getMonth();
-let year = today.getFullYear();
+let activeDay;
 
 const months = [
     "Enero",
@@ -48,34 +49,17 @@ const months = [
     "Diciembre",
 ];
 
-// const eventsArr = [
-//   {
-//     day: 13,
-//     month: 11,
-//     year: 2022,
-//     events: [
-//       {
-//         title: "Event 1 lorem ipsun dolar sit genfa tersd dsad ",
-//         time: "10:00 AM",
-//       },
-//       {
-//         title: "Event 2",
-//         time: "11:00 AM",
-//       },
-//     ],
-//   },
-// ];
-
 async function loadEventsFromJSON() {
     try {
         const response = await fetch('../static/events.json');
-        const data = await response.json();
-        console.log('Data from JSON:', data);  // Agrega esta línea para verificar la carga
+        const data     = await response.json();
+        // console.log('Data from JSON:', data);  // Agrega esta línea para verificar la carga
         return data;
     } catch (error) {
         console.error('Error al cargar el archivo JSON:', error);
     }
 }
+
 let eventsArr = []
 async function initializeCalendarFromJSON() {
     eventsArr = await loadEventsFromJSON();
@@ -90,13 +74,13 @@ console.log(eventsArr);
 
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
 function initCalendar() {
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
+    const firstDay    = new Date(year, month, 1);
+    const lastDay     = new Date(year, month + 1, 0);
     const prevLastDay = new Date(year, month, 0);
-    const prevDays = prevLastDay.getDate();
-    const lastDate = lastDay.getDate();
-    const day = firstDay.getDay();
-    const nextDays = 7 - lastDay.getDay() - 1;
+    const prevDays    = prevLastDay.getDate();
+    const lastDate    = lastDay.getDate();
+    const day         = firstDay.getDay();
+    const nextDays    = 7 - lastDay.getDay() - 1;
 
     date.innerHTML = months[month] + " " + year;
 
@@ -111,16 +95,16 @@ function initCalendar() {
         let event = false;
         eventsArr.forEach((eventObj) => {
             if (
-                eventObj.day === i &&
+                eventObj.day   === i &&
                 eventObj.month === month + 1 &&
-                eventObj.year === year
+                eventObj.year  === year
             ) {
                 event = true;
             }
         });
         if (
-            i === new Date().getDate() &&
-            year === new Date().getFullYear() &&
+            i     === new Date().getDate() &&
+            year  === new Date().getFullYear() &&
             month === new Date().getMonth()
         ) {
             activeDay = i;
