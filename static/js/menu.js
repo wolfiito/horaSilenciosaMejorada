@@ -1,10 +1,11 @@
-const cloud        = document.getElementById("cloud");
-const barraLateral = document.querySelector(".barra-lateral");
-const spans        = document.querySelectorAll("span");
-const palanca      = document.querySelector(".switch");
-const circulo      = document.querySelector(".circulo");
-const menu         = document.querySelector(".menu");
-const main         = document.querySelector("main");
+const   cloud        = document.getElementById("cloud"),
+        barraLateral = document.querySelector(".barra-lateral"),
+        spans        = document.querySelectorAll("span"),
+        palanca      = document.querySelector(".switch"),
+        circulo      = document.querySelector(".circulo"),
+        menu         = document.querySelector(".menu"),
+        main         = document.querySelector("main"),
+        navBar       = document.querySelector(".nav-bar");
 
 const isDarkMode = localStorage.getItem("darkMode") === "true";
 
@@ -26,15 +27,15 @@ menu.addEventListener("click", () => {
     document.getElementById('cloud').style.display = 'none';
     barraLateral.classList.toggle("max-barra-lateral");
     if (barraLateral.classList.contains("max-barra-lateral")) {
-        menu.children[0].style.display = "none";
-        menu.children[1].style.display = "block";
-        menu.style.backgroundColor     = "var(--color-boton-circulo)";
-        menu.style.color               = "var(--color-circulo)";
+        // menu.children[0].style.display = "none";
+        // menu.children[1].style.display = "block";
+        navBar.style.backgroundColor     = "var(--color-boton-circulo)";
+        navBar.style.color               = "var(--color-circulo)";
     } else {
-        menu.children[0].style.display = "block";
-        menu.children[1].style.display = "none";
-        menu.style.backgroundColor     = "var(--color-circulo)";
-        menu.style.color               = "var(--color-boton-circulo)";
+        // menu.children[0].style.display = "block";
+        // menu.children[1].style.display = "none";
+        navBar.style.backgroundColor     = "var(--color-circulo)";
+        navBar.style.color               = "var(--color-boton-circulo)";
     }
     // if (window.innerWidth <= 320) {
     //     barraLateral.classList.add("mini-barra-lateral");
