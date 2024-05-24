@@ -15,7 +15,7 @@
 }
 
 .contenedor_cita{
-    margin-top: 1.5em; /* Separación superior aumentada */
+    margin-top: 4em; /* Separación superior aumentada */
     display: flex;
     flex-direction: column;
     place-items: center;
@@ -28,7 +28,8 @@
 }
 
 .cita_biblica .link-cita{
-    font-size: 2rem;
+    
+    font-size: 1.5rem;
     color: var(--color-cita);
     font-weight: 1000;
 }
@@ -198,10 +199,6 @@ form{
         font-weight: 600;
     }
     
-    .cita_biblica .link-cita{
-        font-size: 1.3rem;
-        font-weight: 700;
-    }
     .hs_text{
         font-size: 1.2rem;
         font-weight: 200;

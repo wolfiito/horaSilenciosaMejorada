@@ -12,10 +12,8 @@ const isDarkMode = localStorage.getItem("darkMode") === "true";
 const toggleDarkMode = () => {
     let body = document.body;
     body.classList.toggle("dark-mode");
-
     const currentMode = body.classList.contains("dark-mode") ? "true" : "false";
     localStorage.setItem("darkMode", currentMode);
-
     circulo.classList.toggle("prendido");
 };
 
@@ -24,18 +22,19 @@ if (isDarkMode) {
 }
 
 menu.addEventListener("click", () => {
-    document.getElementById('cloud').style.display = 'none';
     barraLateral.classList.toggle("max-barra-lateral");
     if (barraLateral.classList.contains("max-barra-lateral")) {
         // menu.children[0].style.display = "none";
         // menu.children[1].style.display = "block";
-        navBar.style.backgroundColor     = "var(--color-boton-circulo)";
-        navBar.style.color               = "var(--color-circulo)";
+        navBar.style.backgroundColor     = "var(--color-bg-header-dark)";
+        // navBar.style.color               = "var(--color-txt-header)";
+        // menu.style.color                 = "var(--color-txt-header)";
     } else {
         // menu.children[0].style.display = "block";
         // menu.children[1].style.display = "none";
-        navBar.style.backgroundColor     = "var(--color-circulo)";
-        navBar.style.color               = "var(--color-boton-circulo)";
+        navBar.style.backgroundColor     = "var(--color-bg-header-light)";
+        // navBar.style.color               = "var(--color-txt-light)";
+        // menu.style.color                 = "var(--color-txt-light)";
     }
     // if (window.innerWidth <= 320) {
     //     barraLateral.classList.add("mini-barra-lateral");
